@@ -16,3 +16,9 @@ jobs:
       run: dotnet build --no-restore
     - name: Test app
       run: dotnet test --no-restore --verbosity normal
+    - name: Post issue
+      uses: dacbd/create-issue-action@main
+      with:
+        token: ${{ secrets.TOKEN }}
+        title: Tests failed!
+        body: Some of the tests didn't pass, fix pls
